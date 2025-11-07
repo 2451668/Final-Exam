@@ -112,3 +112,29 @@ h1, h2, h3 {
   text-align: center;
   color: #666;
 }
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  display: block;
+}
+.card .pad {
+  padding: 0.5rem;
+}
+.card h3 {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+.card a {
+  display: inline-block;
+  margin-top: 0.3rem;
+  text-decoration: none;
+  color: #ff8a00;
+  font-weight: 500;
+}
