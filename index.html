@@ -17,6 +17,30 @@
     <h1 class="hero__title">Find something to cook</h1>
     <p class="hero__tag">Search by name or ingredient below.</p>
   </section>
+  
+<section class="search-area">
+  <form id="search-form" class="search">
+    <input
+      id="search-input"
+      type="text"
+      placeholder="Search for a recipe (e.g. chicken)"
+      aria-label="Search recipes"
+    />
+    <button id="search-btn" type="submit">Search</button>
+  </form>
+
+  <div id="filters" class="chips">
+    <button class="chip" data-filter="i=chicken">Chicken</button>
+    <button class="chip" data-filter="c=Vegetarian">Vegetarian</button>
+    <button class="chip" data-filter="a=Italian">Italian</button>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Results</h2>
+  <div id="results" class="grid"></div>
+  <p id="empty-state" class="muted">Try a search to see recipes.</p>
+</section>
 
   <section>
     <p>Results will go here later.</p>
