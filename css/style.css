@@ -10,3 +10,18 @@ h1, h2, h3 {
   font-weight: 600;
   margin-top: 0;
 }
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.nav a {
+  text-decoration: none;
+  color: #333;
+}
+.nav a.active {
+  font-weight: 600;
+  color: #2e7d32;
+}
