@@ -138,3 +138,10 @@ h1, h2, h3 {
   color: #ff8a00;
   font-weight: 500;
 }
+
+.container { max-width: 1100px; margin: 1.5rem auto; padding: 0 1rem; }
+.two-col { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+#recipe h1 { margin-top: 0.5rem; }
+#ingredients li, #instructions li { margin-bottom: 0.4rem; }
+

@@ -99,6 +99,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
+  // ---- recipe ----
+  if (page === 'recipe') {
+  const titleEl = document.getElementById('recipe-title');
+  const imgEl = document.getElementById('recipe-img');
+  const ingList = document.getElementById('ingredients');
+  const stepsList = document.getElementById('instructions');
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  if (!id) {
+    titleEl.textContent = 'No recipe id provided.';
+    return;
+  }
+
+  async function loadRecipe(mealId) {
+    titleEl.textContent = 'Loading…';
+    try {
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
+      const data = await res.json();
+      const meal = data.meals && data.meals[0];
+
+      if (!meal) {
+        titleEl.textContent = 'Recipe not found.';
+        return;
+      }
+
+      // title and image
+      titleEl.textContent = meal.strMeal || 'Recipe';
+      if (meal.strMealThumb) {
+        imgEl.src = meal.strMealThumb;
+        imgEl.alt = meal.strMeal;
+      }
+
+      // ingredients (mealDB uses strIngredient1..20 + strMeasure1..20)
+      ingList.innerHTML = '';
+      for (let i = 1; i <= 20; i++) {
+        const ing = meal[`strIngredient${i}`];
+        const meas = meal[`strMeasure${i}`];
+        if (ing && ing.trim()) {
+          const li = document.createElement('li');
+          li.textContent = `${ing}${meas ? ` — ${meas}` : ''}`;
+          ingList.appendChild(li);
+        }
+      }
+
+      
+      stepsList.innerHTML = '';
+      const raw = (meal.strInstructions || '').trim();
+      if (raw) {
+       
+        const parts = raw.split(/\r?\n|\.\s+/).filter(Boolean);
+        parts.forEach(step => {
+          const li = document.createElement('li');
+          li.textContent = step;
+          stepsList.appendChild(li);
+        });
+      } else {
+        const li = document.createElement('li');
+        li.textContent = 'No instructions available.';
+        stepsList.appendChild(li);
+      }
+    } catch (err) {
+      titleEl.textContent = 'Error loading recipe.';
+      console.error(err);
+    }
+  }
+
+  loadRecipe(id);
+
+  // fake favourite demo
+  const saveBtn = document.getElementById('save-btn');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      const favs = JSON.parse(localStorage.getItem('favs') || '[]');
+      if (!favs.includes(id)) favs.push(id);
+      localStorage.setItem('favs', JSON.stringify(favs));
+      saveBtn.textContent = 'Saved ✓';
+    });
+  }
+}
+
+
 });
 
 

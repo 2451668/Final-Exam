@@ -9,13 +9,26 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body data-page="recipe" >
   <header id="site-header"></header>
 
-  <main>
-    <h1>Nibble Recipe Finder</h1>
-    <p>Lorem ipsum.</p>
-  </main>
+  <main class="container">
+  <article id="recipe">
+    <h1 id="recipe-title">Loading…</h1>
+    <img id="recipe-img" alt="" class="hero-img" />
+    <div class="two-col">
+      <section>
+        <h2>Ingredients</h2>
+        <ul id="ingredients"></ul>
+      </section>
+      <section>
+        <h2>Instructions</h2>
+        <ol id="instructions"></ol>
+      </section>
+    </div>
+    <button id="save-btn" type="button">Save to favourites</button>
+  </article>
+</main>
 
   <footer>
     <small>© 2025 Nibble</small>
