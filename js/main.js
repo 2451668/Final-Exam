@@ -299,6 +299,15 @@ function buildNav() {
   const nav = document.createElement('nav');
   nav.className = 'nav';
 
+  const logo = document.createElement('a');
+  logo.href = 'index.html';
+  logo.textContent = 'Nibble';
+  logo.className = 'logo';
+  nav.appendChild(logo);
+
+  const linksWrap = document.createElement('div');
+  linksWrap.className = 'nav-links';
+
   navLinks.forEach(link => {
     const a = document.createElement('a');
     a.href = link.href;
@@ -306,11 +315,14 @@ function buildNav() {
     if (window.location.pathname.endsWith(link.href)) {
       a.classList.add('active');
     }
-    nav.appendChild(a);
+    linksWrap.appendChild(a);
   });
+
+  nav.appendChild(linksWrap);
 
   header.appendChild(nav);
 }
+
 
 // simple fallback to guesses page from file name if no data-page attribute
 function detectPage() {
