@@ -207,6 +207,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }
 
+  // ---- GSAP anima ----
+  if (window.gsap) {
+    // fade in title and image
+    const tl = gsap.timeline();
+    tl.from("#recipe-title", { y: 20, opacity: 0, duration: 0.8 })
+      .from("#recipe-img", { opacity: 0, duration: 0.8 }, "-=0.4");
+
+    // stagger ingredients
+    if (document.querySelectorAll("#ingredients li").length) {
+      gsap.from("#ingredients li", {
+        y: 10,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        delay: 0.5
+      });
+    }
+
+    // scroll anim for instructions
+    if (window.ScrollTrigger) {
+      gsap.from("#instructions li", {
+        scrollTrigger: {
+          trigger: "#instructions",
+          start: "top 80%"
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.1
+      });
+    }
+  }
 
 });
 
