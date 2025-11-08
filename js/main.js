@@ -68,6 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchRecipes(url);
       });
     });
+
+        // ---- GSAP animations ----
+    if (window.gsap) {
+      // simple timeline for hero text
+      const tl = gsap.timeline();
+      tl.from(".hero__title", { y: 20, opacity: 0, duration: 0.8 })
+        .from(".hero__tag", { y: 20, opacity: 0, duration: 0.6 }, "-=0.4")
+        .from(".search-area", { y: 20, opacity: 0, duration: 0.6 }, "-=0.2");
+
+      // scroll animation for recipe cards
+      if (window.ScrollTrigger) {
+        gsap.utils.toArray(".card").forEach(card => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+          });
+        });
+      }
+    }
+
   }
 
   // ---- contact ----
