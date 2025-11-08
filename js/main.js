@@ -93,6 +93,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+      // simple motion path anima
+      if (gsap && gsap.plugins && gsap.plugins.MotionPathPlugin) {
+        gsap.registerPlugin(MotionPathPlugin);
+      }
+
+      if (window.MotionPathPlugin) {
+        gsap.to("#spoon", {
+          duration: 8,
+          repeat: -1,
+          ease: "none",
+          motionPath: {
+            path: [
+              { x: 0, y: 0 },
+              { x: 300, y: 30 },
+              { x: 0, y: 60 }
+            ],
+            curviness: 1.2
+          }
+        });
+      }
+
+
   }
 
   // ---- contact ----
