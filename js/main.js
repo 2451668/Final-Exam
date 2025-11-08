@@ -122,6 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Thanks! (Form demo for exam — not actually sent.)');
       });
     }
+
+        // ---- GSAP animas ----
+    if (window.gsap) {
+      // fade in headline
+      gsap.from("h1", { y: 20, opacity: 0, duration: 0.8 });
+
+      // slide-up form on scroll
+      if (window.ScrollTrigger) {
+        gsap.from("#contact-form", {
+          scrollTrigger: {
+            trigger: "#contact-form",
+            start: "top 80%"
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8
+        });
+      }
+    }
+
   }
 
 
