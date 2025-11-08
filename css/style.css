@@ -184,6 +184,48 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact-copy p { margin: 0.5rem 0 0.75rem; }
+
+.contact-heading {
+  margin-top: 1.5rem;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.contact-heading::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #2e7d32; 
+  margin-top: 0.35rem;
+}
+
+.contact-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #f5f5f5;
+}
+
+#contact-form label { display: block; margin: 0.75rem 0; }
+#contact-form button { margin-top: 0.5rem; }
+
+@media (max-width: 900px) {
+  .contact-wrap { grid-template-columns: 1fr; }
+  .contact-media { order: -1; } 
+}
+
+
 .container { max-width: 1100px; margin: 1.5rem auto; padding: 0 1rem; }
 .two-col { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
 @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }

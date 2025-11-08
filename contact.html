@@ -12,32 +12,48 @@
 <body data-page="contact" >
   <header id="site-header"></header>
 
-  <main class="narrow">
-  <h1>Contact</h1>
-  <p class="muted">Questions or feedback? Send a message.</p>
+  <main class="container contact-wrap">
+  <section class="contact-copy">
+    <h1>About</h1>
+    <p class="muted">
+      Nibble is a small recipe finder that helps users search by name or
+      ingredient and view clear instructions and ingredients for each dish.
+    </p>
+    <p class="muted">
+      The project focuses on clean UI, accessibility, and a light use of
+      animation for clarity rather than decoration.
+    </p>
 
-  <form id="contact-form" novalidate>
-    <label>
-      Name
-      <input id="name" type="text" required />
-      <small class="hint" id="name-hint"></small>
-    </label>
+    <h2 class="contact-heading">Get in touch</h2>
 
-    <label>
-      Email
-      <input id="email" type="email" required />
-      <small class="hint" id="email-hint"></small>
-    </label>
+    <form id="contact-form" novalidate>
+      <label>
+        Name
+        <input id="name" type="text" required />
+        <small class="hint" id="name-hint"></small>
+      </label>
 
-    <label>
-      Message
-      <textarea id="message" rows="5" required></textarea>
-      <small class="hint" id="message-hint"></small>
-    </label>
+      <label>
+        Email
+        <input id="email" type="email" required />
+        <small class="hint" id="email-hint"></small>
+      </label>
 
-    <button type="submit">Send</button>
-  </form>
+      <label>
+        Message
+        <textarea id="message" rows="5" required></textarea>
+        <small class="hint" id="message-hint"></small>
+      </label>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <aside class="contact-media">
+    <img src="assets/contact.jpg" alt="Assorted fresh ingredients on a table" />
+  </aside>
 </main>
+
 
 
   <footer>
