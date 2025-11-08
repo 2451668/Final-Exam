@@ -27,19 +27,48 @@ h1, h2, h3 {
 }
 
 .hero {
-  background: #f5f5f5;
-  padding: 2rem 1rem;
+  background: url("../assets/hero.webp") center/cover no-repeat;
+  padding: 4rem 1rem;
   text-align: center;
+  color: #fff;
   border-bottom: 1px solid #eee;
+  position: relative;
+  transition: background-size 1.5s ease; 
+  background-size: cover;
 }
+
+.hero:hover {
+  background-size: 108%; 
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  transition: background 0.5s ease;
+}
+
+.hero:hover::before {
+  background: rgba(0, 0, 0, 0.35); 
+}
+
+.hero__title,
+.hero__tag {
+  position: relative; 
+  z-index: 1;
+}
+
 .hero__title {
-  color: #2e7d32; /* main green */
+  color: #fff;
+  font-size: 2rem;
   margin-bottom: 0.25rem;
 }
+
 .hero__tag {
-  color: #666;
-  margin-top: 0;
+  color: #f1f1f1;
 }
+
 
 .footer {
   border-top: 1px solid #eee;
@@ -148,3 +177,9 @@ h1, h2, h3 {
 @media (max-width: 640px) {
   .nav { flex-wrap: wrap; justify-content: center; }
 }
+
+@media (max-width: 640px) {
+  .hero { padding: 3rem 1rem; background-position: center top; }
+  .hero__title { font-size: 1.5rem; }
+}
+
